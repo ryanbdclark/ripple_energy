@@ -8,24 +8,16 @@
 [![hacs][hacsbadge]][hacs]
 [![Project Maintenance][maintenance-shield]][user_profile]
 
-A custom component for Ripple Energy.
+A custom component for the Ripple Energy api to show your generation data.
 
 ## Installation
 
-1. Use [HACS](https://hacs.xyz/docs/setup/download), in `HACS > Integrations > Explore & Add Repositories` search for "Ripple Energy". After adding this `https://github.com/ryanbdclark/ripple_energy` as a custom repository.
-2. Restart Home Assistant.
-3. [![Add Integration][add-integration-badge]][add-integration] or in the HA UI go to "Settings" -> "Devices & Services" then click "+" and search for "Ripple Energy".
-
+1. Click install.
+2. Reboot Home Assistant.
+3. Hard refresh browser cache.
+4. [![Add Integration][add-integration-badge]][add-integration] or in the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Ripple Energy".
 
 <!---->
-
-## Usage
-
-The `Ripple Energy` integration offers integration with the Ripple Energy cloud service.
-
-## Options
-
-- Seconds between polling - Number of seconds between each call for data from the Ripple Energy cloud service, default is 5 seconds.
 
 ---
 

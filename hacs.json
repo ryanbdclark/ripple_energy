@@ -1,0 +1,7 @@
+{
+  "name": "Ripple Energy",
+  "hacs": "1.32.1",
+  "homeassistant": "2023.7.1",
+  "zip_release": true,
+  "filename": "ripple_energy.zip"
+}

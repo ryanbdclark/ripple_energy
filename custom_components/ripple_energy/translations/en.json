@@ -1,0 +1,112 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Enter api key",
+        "data": {
+          "api_token": "API Key"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reauthentiaction required for Ripple",
+        "data": {
+          "api_key": "API Key"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "invalid_api_token": "Entered api_key is invalid",
+      "unknown": "Unknown error occured"
+    },
+    "abort": {
+      "already_configured": "Device already configured",
+      "reauth_successful": "Reauthentication successful"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configure options for Ripple energy",
+        "data": {
+          "pollinterval": "Polling interval in seconds, min 10"
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "generating": {
+        "name": "Generating"
+      }
+    },
+    "sensor": {
+      "membercapacity": {
+        "name": "Member Capacity"
+      },
+      "memeberexpectedannualgeneration": {
+        "name": "Member Expected Annual Generation"
+      },
+      "generatedlatest": {
+        "name": "Current Generation"
+      },
+      "earnedlatest": {
+        "name": "Current Savings"
+      },
+      "generatedtoday": {
+        "name": "Generated Today"
+      },
+      "earnedtoday": {
+        "name": "£ Earned Today"
+      },
+      "generatedyesterday": {
+        "name": "Generated Yesterday"
+      },
+      "earnedyesterday": {
+        "name": "£ Earned Yesterday"
+      },
+      "generatedthisweek": {
+        "name": "Generated This Week"
+      },
+      "earnedthisweek": {
+        "name": "£ Earned This Week"
+      },
+      "generatedlastweek": {
+        "name": "Generated Last Week"
+      },
+      "earnedlastweek": {
+        "name": "£ Earned Last Week"
+      },
+      "generatedthismonth": {
+        "name": "Generated This Month"
+      },
+      "earnedthismonth": {
+        "name": "£ Earned This Month"
+      },
+      "generatedlastmonth": {
+        "name": "Generated Last Month"
+      },
+      "earnedlastmonth": {
+        "name": "£ Earned Last Month"
+      },
+      "generatedthisyear": {
+        "name": "Generated This Year"
+      },
+      "earnedthisyear": {
+        "name": "£ Earned This Year"
+      },
+      "generatedlastyear": {
+        "name": "Generated Last Year"
+      },
+      "earnedlastyear": {
+        "name": "£ Earned Last Year"
+      },
+      "generatedtotal": {
+        "name": "Generated Total"
+      },
+      "earnedtotal": {
+        "name": "£ Earned Total"
+      }
+    }
+  }
+}
