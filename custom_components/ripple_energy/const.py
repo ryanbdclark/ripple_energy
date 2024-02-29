@@ -2,3 +2,4 @@
 
 DOMAIN = "ripple_energy"
 POLLING_INTERVAL = 3600
+ASSETS = ["Graig Fatha"]

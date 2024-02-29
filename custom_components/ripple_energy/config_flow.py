@@ -20,7 +20,7 @@ from pyrippleapi.exceptions import (
 )
 from pyrippleapi.generation_asset import GenerationAsset
 
-from .const import DOMAIN, POLLING_INTERVAL
+from .const import DOMAIN, POLLING_INTERVAL, ASSETS
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -56,7 +56,7 @@ class RippleConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 session=async_get_clientsession(self.hass),
             )
             try:
-                data = await ripple_api.request()
+                data = await ripple_api.request(assets=ASSETS)
 
             except RippleDevicesError:
                 errors["base"] = "no_devices"
