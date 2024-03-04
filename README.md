@@ -15,6 +15,7 @@ A custom component for Ripple Energy.
 1. Use [HACS](https://hacs.xyz/docs/setup/download), in `HACS > Integrations > Explore & Add Repositories` search for "Ripple Energy". After adding this `https://github.com/ryanbdclark/ripple_energy` as a custom repository.
 2. Restart Home Assistant.
 3. [![Add Integration][add-integration-badge]][add-integration] or in the HA UI go to "Settings" -> "Devices & Services" then click "+" and search for "Ripple Energy".
+4. When configuring you ripple energy API key is required, to retrieve this follow [this link](https://community.rippleenergy.com/new-feature-requests-yyqtfatb/post/ripple-api-yH0cTzuQ4GJMaYV](https://community.rippleenergy.com/new-feature-requests-yyqtfatb/post/ripple-api-yH0cTzuQ4GJMaYV)).
 
 
 <!---->
