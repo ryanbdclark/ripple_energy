@@ -1,4 +1,5 @@
 """Support for Ripple binary sensors."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -17,26 +18,16 @@ from .coordinator import RippleCoordinator
 from .entity import RippleBaseEntity
 
 
-@dataclass
-class RippleBinarySensorEntityMixin:
-    """Ripple binary sensor element mixin"""
-
-    element: str
-
-
-@dataclass
-class RippleBinarySensorEntityDescription(
-    BinarySensorEntityDescription, RippleBinarySensorEntityMixin
-):
+@dataclass(kw_only=True)
+class RippleBinarySensorEntityDescription(BinarySensorEntityDescription):
     """Represent the Ripple binary sensor entity description."""
 
 
 SENSORS: tuple[RippleBinarySensorEntityDescription, ...] = (
     RippleBinarySensorEntityDescription(
-        key="generating",
+        key="status",
         translation_key="generating",
         device_class=BinarySensorDeviceClass.POWER,
-        element="status",
     ),
 )
 
@@ -50,11 +41,13 @@ async def async_setup_entry(
 
     coordinators: RippleCoordinator = hass.data[DOMAIN][config_entry.entry_id].values()
 
-    async_add_entities(
-        RippleBinarySensor(coordinator, sensor)
-        for coordinator in coordinators
-        for sensor in SENSORS
-    )
+    sensors = []
+
+    for coordinator in coordinators:
+        for sensor in SENSORS:
+            sensors.append(RippleBinarySensor(coordinator, sensor))
+
+    async_add_entities(sensors)
 
 
 class RippleBinarySensor(RippleBaseEntity, BinarySensorEntity):
@@ -76,7 +69,7 @@ class RippleBinarySensor(RippleBaseEntity, BinarySensorEntity):
     def is_on(self) -> bool:
         """Return true if the binary sensor is on."""
 
-        if self.entity_description.element == "status":
+        if self.entity_description.key == "status":
             state = True if self.asset.status == "Operational" else False
 
         return state
