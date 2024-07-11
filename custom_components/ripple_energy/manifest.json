@@ -11,5 +11,5 @@
   "requirements": [
     "pyrippleapi==2024.5.3"
   ],
-  "version": "2024.7.1"
+  "version": "2024.7.2"
 }

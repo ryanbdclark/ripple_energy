@@ -270,7 +270,8 @@ async def async_setup_entry(
         for sensor in MEMBER_SENSORS:
             sensors.append(RippleMemberSensor(coordinator, sensor))
         for sensor in TELEMETRY_SENSORS:
-            sensors.append(RippleTelemetrySensor(coordinator, sensor))
+            if sensor.key in coordinator.asset.latest_telemetry:
+                sensors.append(RippleTelemetrySensor(coordinator, sensor))
 
     async_add_entities(sensors)
 
