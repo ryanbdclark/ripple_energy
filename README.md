@@ -24,9 +24,16 @@ A custom component for Ripple Energy.
 
 The `Ripple Energy` integration offers integration with the Ripple Energy cloud service.
 
+This integration provides the following entities:
+
+- Binary sensors - Generating status
+- Sensors - Member capacity, member expected annual generation, average wind speed, average generator speed, average blade angle*, nacelle position, average tower base temperature, average ambient temperature, latest generated, latest earned, today generated, today earned, yesterday generated, yesterday earned, this week generated, this week earned, last week generated*, last week earned*, this month generated, this month earned, last month generated*, last month earned*, this year generated, this year earned, last year generated*, last year earned*, total generated, total earned.
+
+Sensors marked with a * are disabled by default to use please manually enable in HA
+
 ## Options
 
-- Seconds between polling - Number of seconds between each call for data from the Ripple Energy cloud service, default is 5 seconds.
+- Seconds between polling - Number of seconds between each call for data from the Ripple Energy cloud service, default is 3600 seconds (1 hour) minimum of 10 seconds, once changed restart of HA required.
 
 ---
 

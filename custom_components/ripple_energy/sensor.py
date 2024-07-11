@@ -11,7 +11,14 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfPower, UnitOfEnergy
+from homeassistant.const import (
+    UnitOfPower,
+    UnitOfEnergy,
+    UnitOfSpeed,
+    UnitOfTemperature,
+    REVOLUTIONS_PER_MINUTE,
+    DEGREE,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
@@ -41,6 +48,56 @@ MEMBER_SENSORS: tuple[RippleSensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:meter-electric",
+    ),
+)
+
+TELEMETRY_SENSORS: tuple[RippleSensorEntityDescription, ...] = (
+    RippleSensorEntityDescription(
+        key="wind_speed_avg",
+        translation_key="wind_speed",
+        native_unit_of_measurement=UnitOfSpeed.MILES_PER_HOUR,
+        device_class=SensorDeviceClass.WIND_SPEED,
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:weather-windy",
+    ),
+    RippleSensorEntityDescription(
+        key="generator_speed_avg",
+        translation_key="generator_speed",
+        native_unit_of_measurement=REVOLUTIONS_PER_MINUTE,
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:turbine",
+    ),
+    RippleSensorEntityDescription(
+        key="blade_angle_avg",
+        translation_key="blade_angle",
+        native_unit_of_measurement=DEGREE,
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:wind-turbine",
+        entity_registry_enabled_default=False,
+    ),
+    RippleSensorEntityDescription(
+        key="nacelle_position",
+        translation_key="nacelle_position",
+        native_unit_of_measurement=DEGREE,
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:wind-turbine",
+        entity_registry_enabled_default=False,
+    ),
+    RippleSensorEntityDescription(
+        key="tower_base_temp_avg",
+        translation_key="tower_base_temp",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=False,
+    ),
+    RippleSensorEntityDescription(
+        key="ambient_temp_max",
+        translation_key="ambient_temp",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=False,
     ),
 )
 
@@ -212,6 +269,8 @@ async def async_setup_entry(
                 sensors.append(RippleSensor(coordinator, sensor))
         for sensor in MEMBER_SENSORS:
             sensors.append(RippleMemberSensor(coordinator, sensor))
+        for sensor in TELEMETRY_SENSORS:
+            sensors.append(RippleTelemetrySensor(coordinator, sensor))
 
     async_add_entities(sensors)
 
@@ -251,3 +310,18 @@ class RippleMemberSensor(RippleSensor):
     def native_value(self) -> StateType:
         """Return sensor value."""
         return getattr(self.asset, self.entity_description.key)
+
+
+class RippleTelemetrySensor(RippleSensor):
+    def __init__(
+        self,
+        coordinator: RippleCoordinator,
+        sensor_description: RippleSensorEntityDescription,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__(coordinator, sensor_description)
+
+    @property
+    def native_value(self) -> StateType:
+        """Return sensor value."""
+        return self.asset.latest_telemetry[self.entity_description.key]

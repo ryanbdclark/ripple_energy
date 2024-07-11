@@ -106,6 +106,24 @@
       },
       "earnedtotal": {
         "name": "£ Earned Total"
+      },
+      "wind_speed": {
+        "name": "Wind speed"
+      },
+      "generator_speed": {
+        "name": "Generator speed"
+      },
+      "blade_angle": {
+        "name": "Blade angle"
+      },
+      "nacelle_position": {
+        "name": "Nacelle position"
+      },
+      "tower_base_temp": {
+        "name": "Tower base temperature"
+      },
+      "ambient_temp": {
+        "name": "Ambient temperature"
       }
     }
   }
