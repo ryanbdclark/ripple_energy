@@ -1,6 +1,15 @@
 # Changelog
 
 <!--next-version-placeholder-->
+## 2024.8.1 (2024-08-27)
+### Feature
+* £ sensors now have the unit 'GBP' ([`423c1b6`](https://github.com/ryanbdclark/ripple_energy/commit/423c1b62d7ebb5f30de7eb3d7522466733522f61))
+* latest generated sensor unit changed to kW as per new API documentation ([`423c1b6`](https://github.com/ryanbdclark/ripple_energy/commit/423c1b62d7ebb5f30de7eb3d7522466733522f61))
+
+### Fix
+* Invalid API error now displays correct error ([`423c1b6`](https://github.com/ryanbdclark/ripple_energy/commit/423c1b62d7ebb5f30de7eb3d7522466733522f61))
+* Bump pyrippleapi to 2024.8.1 ([`423c1b6`](https://github.com/ryanbdclark/ripple_energy/commit/423c1b62d7ebb5f30de7eb3d7522466733522f61))
+
 ## 2024.7.3 (2024-07-11)
 ### Feature
 * Added support for Whitlaw Brae ([`8b383b3`](https://github.com/ryanbdclark/ripple_energy/commit/8b383b34866fb55f2fa7f86344ba743e8bfacec9))
