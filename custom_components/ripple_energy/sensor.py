@@ -105,13 +105,14 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="latest_generated",
         translation_key="generatedlatest",
-        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        native_unit_of_measurement=UnitOfPower.KILO_WATT,
         state_class=SensorStateClass.MEASUREMENT,
         icon="mdi:meter-electric",
     ),
     RippleSensorEntityDescription(
         key="latest_earned",
         translation_key="earnedlatest",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.MEASUREMENT,
         icon="mdi:currency-gbp",
     ),
@@ -126,6 +127,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="today_earned",
         translation_key="earnedtoday",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
     ),
@@ -140,6 +142,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="yesterday_earned",
         translation_key="earnedyesterday",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
     ),
@@ -154,6 +157,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="this_week_earned",
         translation_key="earnedthisweek",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
     ),
@@ -169,6 +173,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="last_week_earned",
         translation_key="earnedlastweek",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
         entity_registry_enabled_default=False,
@@ -184,6 +189,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="this_month_earned",
         translation_key="earnedthismonth",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
     ),
@@ -199,6 +205,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="last_month_earned",
         translation_key="earnedlastmonth",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
         entity_registry_enabled_default=False,
@@ -214,6 +221,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="this_year_earned",
         translation_key="earnedthisyear",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
     ),
@@ -229,6 +237,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="last_year_earned",
         translation_key="earnedlastyear",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL_INCREASING,
         icon="mdi:currency-gbp",
         entity_registry_enabled_default=False,
@@ -244,6 +253,7 @@ SENSORS: tuple[RippleSensorEntityDescription, ...] = (
     RippleSensorEntityDescription(
         key="total_earned",
         translation_key="earnedtotal",
+        native_unit_of_measurement="GBP",
         state_class=SensorStateClass.TOTAL,
         icon="mdi:currency-gbp",
     ),

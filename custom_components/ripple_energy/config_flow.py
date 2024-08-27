@@ -17,6 +17,7 @@ from pyrippleapi.exceptions import (
     RippleAuthenticationError,
     RippleConnectionError,
     RippleDevicesError,
+    RippleError,
 )
 from pyrippleapi.generation_asset import GenerationAsset
 
@@ -60,6 +61,8 @@ class RippleConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
             except RippleDevicesError:
                 errors["base"] = "no_devices"
+            except RippleAuthenticationError:
+                errors["base"] = "invalid_api_token"
             except Exception:  # pylint: disable=broad-except
                 _LOGGER.exception("Unexpected exception")
                 errors["base"] = "unknown"
