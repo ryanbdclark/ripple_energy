@@ -1,4 +1,4 @@
-# ripple_energy Custom Integration
+# Ripple Energy Custom Integration
 
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]

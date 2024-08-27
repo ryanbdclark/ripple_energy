@@ -1,4 +1,4 @@
-"""Constants for the Owlet Smart Sock integration."""
+"""Constants for the ripple energy integration."""
 
 DOMAIN = "ripple_energy"
 POLLING_INTERVAL = 3600

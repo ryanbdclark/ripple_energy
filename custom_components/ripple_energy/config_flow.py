@@ -1,4 +1,4 @@
-"""Config flow for Owlet Smart Sock integration."""
+"""Config flow for Ripple energy integration."""
 from __future__ import annotations
 
 import logging

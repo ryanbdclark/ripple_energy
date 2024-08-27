@@ -1,4 +1,4 @@
-"""The Owlet Smart Sock integration."""
+"""The Ripple energy integration."""
 from __future__ import annotations
 
 import asyncio

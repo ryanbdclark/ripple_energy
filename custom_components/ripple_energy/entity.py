@@ -1,4 +1,4 @@
-"""Base class for Owlet entities."""
+"""Base class for Ripple energy entities."""
 
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
